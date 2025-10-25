@@ -8,9 +8,9 @@ rsrce = rsrce.toLowerCase();
 if (meth == "POST" && rsrce == "products") {
     const [title, price, category] = params;
     const product = {
-        title: title,
-        price: price,
-        category: category,
+        title,
+        price,
+        category,
     };
     const response = await fetch("https://fakestoreapi.com/products", {
         method: "POST",
