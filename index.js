@@ -8,12 +8,12 @@ rsrce = rsrce.toLowerCase();
 if (meth == "POST" && rsrce == "products") {
     const [title, price, category] = params;
     const product = {
-        title,
-        price,
-        category,
+        title: title,
+        price: price,
+        category: category,
     };
     const response = await fetch("https://fakestoreapi.com/products", {
-        meth: "POST",
+        method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(product),
     });
@@ -56,7 +56,7 @@ if (meth == "PUT" && rsrce.startsWith("products/")) {
         category,
     };
     const response = await fetch(`https://fakestoreapi.com/products/${id}`, {
-        meth: "PUT",
+        method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(product),
     });
@@ -69,7 +69,7 @@ if (meth == "PUT" && rsrce.startsWith("products/")) {
 if (meth == "DELETE" && rsrce.startsWith("products/")) {
     const id = parseInt(rsrce.split("/")[1]);
     const response = await fetch(`https://fakestoreapi.com/products/${id}`, {
-        meth: "DELETE"
+        method: "DELETE"
     });
     const data = await response.json();
     console.log(data);
